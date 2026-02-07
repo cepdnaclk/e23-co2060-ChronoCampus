@@ -1,5 +1,5 @@
 {
-    "title": "Smart University Schedule and Facility Management System",
+    "title": "ChronoCampus(Smart University Schedule and Facility Management System)",
     "team": [
         {
             "name": "Thanush V.",
@@ -32,7 +32,7 @@
             "email": "email@eng.pdn.ac.lk"
         }
     ],
-    "tags": ["Web", "Software Systems", "CO2060"],
+    "tags": ["Web", "Software Systems Design", "CO2060"],
     "image":"cover_page.jpg",
     "thumbnail":"thumbnail.jpg"
 }
