@@ -72,7 +72,8 @@ def reserve_room():
     if conflict:
         cur.close()
         conn.close()
-        return {"error": "Time slot already booked"}, 400
+        return jsonify({"error": "Time slot already booked"}), 400
+
 
     # Insert if no conflict
     cur.execute("""
