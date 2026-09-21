@@ -40,8 +40,8 @@ db.init_app(app)
 
 with app.app_context():
     db.create_all()
-    print("✅ Tables ready!")
-    print("✅ DB URI:", app.config["SQLALCHEMY_DATABASE_URI"])
+    print(" Tables ready!")
+    print(" DB URI:", app.config["SQLALCHEMY_DATABASE_URI"])
 
 
 app.register_blueprint(reservation_bp)

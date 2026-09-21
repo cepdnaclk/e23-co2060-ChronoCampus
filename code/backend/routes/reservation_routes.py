@@ -507,7 +507,7 @@ def mark_notification_read(notification_id):
 # ─────────────────────────────────────────────────────────────────────────────
 # FEATURE 13 — BOOKING REMINDERS
 # POST /notifications/send-reminders
-# Sends ⏰ reminders for approved bookings starting within 30 minutes.
+# Sends  reminders for approved bookings starting within 30 minutes.
 # Call via cron / APScheduler every 5 minutes:
 #   from apscheduler.schedulers.background import BackgroundScheduler
 #   scheduler = BackgroundScheduler()
