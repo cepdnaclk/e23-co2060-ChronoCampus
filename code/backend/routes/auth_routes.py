@@ -29,6 +29,7 @@ def is_strong_password(password):
     return True
 
 # ── Determine role from university email ───────────────────────────────────────
+"""
 def get_role_from_email(email):
     admin_email    = "donotreply@pdn.ac.lk"
     allowed_domain = "@eng.pdn.ac.lk"
@@ -41,7 +42,24 @@ def get_role_from_email(email):
         elif re.match(r"^[a-zA-Z]+$", username): return "staff"
         else: return None
     return None
+"""
+def get_role_from_email(email):
+    admin_email     = "donotreply@pdn.ac.lk"
+    student_domain  = "@eng.pdn.ac.lk"
+    staff_domains   = ["@eng.pdn.ac.lk", "@ee.pdn.ac.lk"]
+    username        = email.split("@")[0]
 
+    if email == admin_email:
+        return "admin"
+
+    if email.endswith(student_domain) and re.match(r"^e\d{5}$", username):
+        return "student"
+
+    for domain in staff_domains:
+        if email.endswith(domain) and re.match(r"^[a-zA-Z]+$", username):
+            return "staff"
+
+    return None
 
 # ─────────────────────────────────────────────────────────────────────────────
 # REGISTER
@@ -70,7 +88,8 @@ def register():
 
     role = get_role_from_email(email)
     if not role:
-        return jsonify({"error": "Only university emails (@eng.pdn.ac.lk) are allowed"}), 400
+        #return jsonify({"error": "Only university emails (@eng.pdn.ac.lk) are allowed"}), 400
+        return jsonify({"error": "Students must use e-number emails (@eng.pdn.ac.lk); staff may use @eng.pdn.ac.lk or @ee.pdn.ac.lk"}), 400
 
     hashed = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
 
