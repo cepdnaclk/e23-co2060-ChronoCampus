@@ -80,13 +80,8 @@ This module follows a **Layered / MVC-based architecture**:
 - Sessions → manage logged-in users
 
 
-##  How to Run (Development Setup)
 
-Full setup steps are documented inside:
-
-docs/setup_guide.md
-
-**General workflow (to be expanded later):**
+## General workflow 
 
 1. Clone repository  
 2. Navigate to backend folder  
