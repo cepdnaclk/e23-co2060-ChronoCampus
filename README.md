@@ -45,7 +45,6 @@ Sara_UserAuthenticationModule/
 - Python
 - Flask Framework
 - Session-based authentication
-- Python-dotenv for credential management
 - Bcrypt for password hashing
 - REST API design
 
