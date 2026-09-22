@@ -38,16 +38,7 @@ def get_role_from_email(email):
 
     if email == admin_email:
         return "admin"
-    """
-    if email.endswith(student_domain) and re.match(r"^e\d{5}$", username):
-        return "student"
 
-    for domain in staff_domains:
-        if email.endswith(domain) and re.match(r"^[a-zA-Z]+$", username):
-            return "staff"
-
-    return None
-    """
     # Student check
     if email.endswith(student_domain):
         match = re.match(r"^e\d{2}(\d{3})$", username)
