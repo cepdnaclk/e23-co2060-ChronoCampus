@@ -214,6 +214,7 @@ if (loginForm) {
       sessionStorage.setItem("user_id",   user.user_id);
       sessionStorage.setItem("role",      user.role);
       sessionStorage.setItem("user_name", user.full_name);
+      sessionStorage.setItem("email",     user.email);
 
       setMessage("loginMessage", "Login successful! Redirecting…", "success");
 
@@ -224,6 +225,50 @@ if (loginForm) {
       setMessage("loginMessage", "Cannot connect to server. Is Flask running?", "error");
       btn.disabled    = false;
       btn.textContent = "Login";
+    }
+  });
+}
+/* ── CHANGE PASSWORD ──────────────────────────────────────── */
+const changePasswordForm = document.getElementById("changePasswordForm");
+if (changePasswordForm) {
+  changePasswordForm.addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const btn = changePasswordForm.querySelector("button[type=submit]");
+    btn.disabled    = true;
+    btn.textContent = "Updating…";
+
+    const data = {
+      email:        document.getElementById("cp_email").value.trim(),
+      old_password: document.getElementById("old_password").value,
+      new_password: document.getElementById("new_password").value
+    };
+
+    try {
+      const response = await fetch(`${backendURL}/auth/change-password`, {
+        method:  "PUT",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify(data),
+        credentials: "include"
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        setMessage("changePasswordMessage", result.error || "Failed to change password", "error");
+        btn.disabled    = false;
+        btn.textContent = "Change Password";
+        return;
+      }
+
+      setMessage("changePasswordMessage", result.message || "Password changed! Redirecting to login…", "success");
+      changePasswordForm.reset();
+
+      setTimeout(() => window.location.href = "/login", 1500);
+
+    } catch {
+      setMessage("changePasswordMessage", "Cannot connect to server. Is Flask running?", "error");
+      btn.disabled    = false;
+      btn.textContent = "Change Password";
     }
   });
 }

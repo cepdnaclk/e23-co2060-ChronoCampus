@@ -369,7 +369,7 @@ button:disabled {
 }
 
 /* ── Messages ──────────────────────────────────────────────── */
-#message, #loginMessage {
+#message, #loginMessage ,#changePasswordMessage {
   text-align: center;
   margin-top: 0.85rem;
   font-size: 0.82rem;
@@ -381,14 +381,14 @@ button:disabled {
 }
 
 /* Error state */
-#message.error, #loginMessage.error {
+#message.error, #loginMessage.error, #changePasswordMessage.error  {
   background: rgba(239,68,68,0.08);
   border: 1px solid rgba(239,68,68,0.3);
   color: #fca5a5;
 }
 
 /* Success state */
-#message.success, #loginMessage.success {
+#message.success, #loginMessage.success, #changePasswordMessage.success {
   background: rgba(34,197,94,0.08);
   border: 1px solid rgba(34,197,94,0.25);
   color: #86efac;

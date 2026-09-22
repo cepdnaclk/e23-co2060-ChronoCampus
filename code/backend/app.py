@@ -537,6 +537,11 @@ def login_page():
 def signup_page():
     return render_template("signup.html")
 
+# CHANGE PASSWORD PAGE
+@app.route("/change-password")
+def change_password_page():
+    return render_template("change_password.html")
+
 @app.route("/dashboard")
 def dashboard1():
     return render_template("dashboard.html")
