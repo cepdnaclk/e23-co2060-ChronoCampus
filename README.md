@@ -13,10 +13,11 @@ This module handles:
 - User registration
 - Secure login and logout functionality
 - University email validation and format verification
+- Role detection (Student / Staff / Admin)
 - Password security using hashing (bcrypt)
 - Session handling using Flask backend framework
-- Role detection (Student / Staff / Admin)
-- Backend API development for frontend integration
+- Change-password functionality
+- Backend REST API development for frontend integration
 - PostgreSQL database intergration
 
 This is the **core security layer** of the ChronoCampus platform.
@@ -44,23 +45,28 @@ Sara_UserAuthenticationModule/
 - Python
 - Flask Framework
 - Session-based authentication
+- Python-dotenv for credential management
+- Bcrypt for password hashing
 - REST API design
 
 ### Frontend
-- HTML
-- CSS
-- JavaScript
+- HTML / CSS / JavaScript (vanilla, no framework)
+- UI theme: Dark navy/cyan
+- Fonts: Playfair Display, DM Sans
+  
 
 ### Database
 - PostgreSQL (planned integration)
 
 
-##  Authentication Features (Planned)
+##  Authentication Features (Implemented)
 
+- User registration
 - Login / Logout system
 - Secure session management
-- Role-based authorization
-- JSON API responses for frontend
+- Role-based authorization via university email pattern detection
+- Change-password functionality
+- JSON API responses for frontend integration
 - Protected routes
 
 
@@ -70,7 +76,7 @@ This module follows a **Layered / MVC-based architecture**:
 
 - Models → user data structure
 - Routes → authentication endpoints
-- Views → frontend login & profile pages
+- Views → frontend login,signup & dashboard pages
 - Sessions → manage logged-in users
 
 
