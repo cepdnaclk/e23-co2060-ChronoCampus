@@ -56,7 +56,7 @@ Sara_UserAuthenticationModule/
   
 
 ### Database
-- PostgreSQL (planned integration)
+- PostgreSQL
 
 
 ##  Authentication Features (Implemented)
