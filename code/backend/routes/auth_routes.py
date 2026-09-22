@@ -38,7 +38,7 @@ def get_role_from_email(email):
 
     if email == admin_email:
         return "admin"
-
+    """
     if email.endswith(student_domain) and re.match(r"^e\d{5}$", username):
         return "student"
 
@@ -47,7 +47,22 @@ def get_role_from_email(email):
             return "staff"
 
     return None
+    """
+    # Student check
+    if email.endswith(student_domain):
+        match = re.match(r"^e\d{2}(\d{3})$", username)
+        if match:
+            roll_number = int(match.group(1))
+            if 1 <= roll_number <= 470:
+                return "student"
+        return None  
 
+    # Staff check 
+    for domain in staff_domains:
+        if email.endswith(domain) and re.match(r"^[a-zA-Z]+$", username):
+            return "staff"
+
+    return None
 # ─────────────────────────────────────────────────────────────────────────────
 # REGISTER
 # ─────────────────────────────────────────────────────────────────────────────
@@ -75,9 +90,8 @@ def register():
 
     role = get_role_from_email(email)
     if not role:
-        #return jsonify({"error": "Only university emails (@eng.pdn.ac.lk) are allowed"}), 400
-        return jsonify({"error": "Students must use e-number emails (@eng.pdn.ac.lk); staff may use @eng.pdn.ac.lk or @ee.pdn.ac.lk"}), 400
-
+        return jsonify({"error": "Invalid email"}), 400
+        
     # enforce @ee.pdn.ac.lk only for Electrical And Electronic Engineering staff 
     if email.endswith("@ee.pdn.ac.lk") and department != "Electrical And Electronic Engineering":
         return jsonify({
