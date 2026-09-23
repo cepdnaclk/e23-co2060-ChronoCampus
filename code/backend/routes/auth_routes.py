@@ -31,7 +31,7 @@ def is_strong_password(password):
 # ── Determine role from university email ───────────────────────────────────────
 
 def get_role_from_email(email):
-    admin_email     = "donotreply@pdn.ac.lk"
+    admin_email     = "admin@pdn.ac.lk"
     student_domain  = "@eng.pdn.ac.lk"
     staff_domains   = ["@eng.pdn.ac.lk", "@ee.pdn.ac.lk"]
     username        = email.split("@")[0]
