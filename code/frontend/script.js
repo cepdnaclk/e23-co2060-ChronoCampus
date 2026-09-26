@@ -3,15 +3,15 @@ const BASE_URL = "http://127.0.0.1:5000";
 
 /* Current Status */
 function loadStatus() {
-    fetch(BASE_URL + "/rooms/current-status")
-    .then(res => res.json())
+    fetch(BASE_URL + "/rooms/current-status") /* Sends an HTTP GET request to the backend */
+    .then(res => res.json()) /* convert the JSON response into a javascript object*/
     .then(data => {
-        const div = document.getElementById("status");
+        const div = document.getElementById("status"); /* Finds the HTML element whose id is "status" */
         if (!div) return;
 
-        div.innerHTML = "";
+        div.innerHTML = ""; /* Clear previous results*/
 
-        data.forEach(room => {
+        data.forEach(room => { /* Loop through every room returmd from the backend */
             const card = document.createElement("div");
             card.className = "card";
 
@@ -27,7 +27,7 @@ function loadStatus() {
                     " - <span class='free'>Free</span>";
             }
 
-            div.appendChild(card);
+            div.appendChild(card); /* Adds the card into webpage*/
         });
     });
 }

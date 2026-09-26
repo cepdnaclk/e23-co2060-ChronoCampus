@@ -6,7 +6,7 @@
 }
 
 /* ================= ROOT ================= */
-:root {
+:root { /* :root Stors reusable colors eg: var(--blue-400) */
   --navy-900: #080d1a;
   --navy-800: #0b1120;
   --navy-700: #111d33;
@@ -49,13 +49,13 @@ body {
   margin: 20px 0 30px;
 }
 
-/* ================= CONTAINER ================= */
+/* ================= CONTAINER: Center the page */
 .container {
   max-width: 1100px;
   margin: 0 auto;
 }
 
-/* ================= NAV BUTTON SECTION ================= */
+/* ================= NAV: Controls navigation layout ================= */
 .nav {
   display: flex;
   flex-direction: column;
@@ -63,7 +63,7 @@ body {
   gap: 20px;
 }
 
-/* Each block */
+/* .tooltip: Shows descriptions when mouse hovers over buttons. */
 .tooltip {
   width: 400px;
   display: flex;
@@ -111,12 +111,13 @@ body {
   opacity: 1;
 }
 
-/* ================= STATUS ================= */
+/* Shows occupied rooms in red. */
 .occupied {
   color: #fca5a5;
   font-weight: 600;
 }
 
+/* Shows free rooms in green */
 .free {
   color: #86efac;
   font-weight: 600;
